@@ -66,11 +66,6 @@ class _OTPScreenState extends State<OTPScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/img1.png',
-                width: 150,
-                height: 150,
-              ),
               SizedBox(
                 height: 25,
               ),

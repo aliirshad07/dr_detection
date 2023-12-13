@@ -1,4 +1,4 @@
-import 'package:dr_detection/screens/login_screen.dart';
+import 'package:dr_detection/screens/phone_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
             icon: Icon(Icons.settings_power_rounded),
             onPressed: ()async{
               try {
-                await _auth.signOut().whenComplete(() => Get.to(()=> LoginScreen()));
+                await _auth.signOut().whenComplete(() => Get.to(()=> PhoneScreen()));
                 // Clear stored user data, such as UID and authentication state
               } catch (e) {
                 print('Error signing out: $e');

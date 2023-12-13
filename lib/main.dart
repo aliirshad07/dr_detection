@@ -1,5 +1,5 @@
 import 'package:dr_detection/controllers/signin_signup_controller.dart';
-import 'package:dr_detection/screens/login_screen.dart';
+import 'package:dr_detection/screens/phone_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:dr_detection/Hscreen.dart';
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
               ),
             );
           }
-          return LoginScreen();
+          return PhoneScreen();
         },
       ),
       builder: EasyLoading.init(),

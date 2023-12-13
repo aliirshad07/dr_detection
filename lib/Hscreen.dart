@@ -25,7 +25,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   final userProfileController = Get.put(UserProfileController());
-
   String selectedImagePath = '';
   String confidence = "";
   String diseaseConfidence = "";
