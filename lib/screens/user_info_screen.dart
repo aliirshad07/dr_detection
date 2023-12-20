@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dr_detection/Hscreen.dart';
 import 'package:dr_detection/controllers/signin_signup_controller.dart';
 import 'package:dr_detection/screens/otp_screen.dart';
+import 'package:dr_detection/widgets/functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,6 +16,7 @@ class GetUserInfoScreen extends StatefulWidget {
 
 class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
 
+
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailAddressController = TextEditingController();
@@ -22,6 +25,9 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
 
   final userProfileController = Get.put(UserProfileController());
   final controller = Get.put(SigninSignupController());
+  String gender = 'Male';
+
+
 
 
   @override
@@ -52,27 +58,18 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
               controller: firstNameController,
               hintText: 'Enter your first name',
               keyboardType: TextInputType.text,
-              onChanged: (value){
-                userProfileController.setFirstName(value);
-              }
             ),
             SizedBox(height: 16.0),
             buildShadowedTextField(
               controller: lastNameController,
               hintText: 'Enter your last name',
               keyboardType: TextInputType.text,
-                onChanged: (value){
-                  userProfileController.setLastName(value);
-                }
             ),
             SizedBox(height: 16.0),
             buildShadowedTextField(
               controller: emailAddressController,
               hintText: 'Enter your email address',
               keyboardType: TextInputType.emailAddress,
-                onChanged: (value){
-                  userProfileController.setEmailAddress(value);
-                }
             ),
             SizedBox(height: 16.0),
             Row(
@@ -81,7 +78,7 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
                   child: DropdownButtonFormField(
                     value: 'Male', // Default value
                     onChanged: (value) {
-                      userProfileController.setGender(value!);
+                      gender = value!;
                     },
                     items: ['Male', 'Female', 'Other'].map<DropdownMenuItem<String>>(
                           (String value) {
@@ -103,9 +100,6 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
                     controller: dobController,
                     hintText: 'DOB',
                     keyboardType: TextInputType.text,
-                    onChanged: (value){
-                      userProfileController.setDob(value);
-                    }
                   ),
                 ),
               ],
@@ -116,10 +110,18 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
               child: ElevatedButton(
                 onPressed: ()async{
                   if(firstNameController.text.isNotEmpty && lastNameController.text.isNotEmpty && dobController.text.isNotEmpty
-                      && emailAddressController.text.isNotEmpty && genderController.text.isNotEmpty
-                  ){
-                    await userProfileController.saveUserProfileDetails();
-                    Get.offAll(()=> MyHomePage());
+                      && emailAddressController.text.isNotEmpty && gender!=null){
+
+                    showProgressDialog(context, "Saving data");
+                    await controller.saveProfileData(
+                      firstName: firstNameController.text,
+                      lastName: lastNameController.text,
+                      emailAddress: emailAddressController.text,
+                      dob: dobController.text,
+                      gender: gender
+                    );
+
+
                   }else{
                     Get.snackbar("Empty fields", "Enter all fields", backgroundColor: Colors.white);
                   }
@@ -133,6 +135,7 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
                   style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
+                    color: Colors.white
                   ),
                 ),
               ),

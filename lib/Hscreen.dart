@@ -12,6 +12,7 @@ import "package:image/image.dart" as img;
 import 'package:http/http.dart' as http;
 import "package:flutter_easyloading/flutter_easyloading.dart";
 
+import 'controllers/signin_signup_controller.dart';
 import 'controllers/user_profile_controller.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -24,7 +25,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  final userProfileController = Get.put(UserProfileController());
+  final controller = Get.put(SigninSignupController());
   String selectedImagePath = '';
   String confidence = "";
   String diseaseConfidence = "";
@@ -126,92 +127,95 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    userProfileController.loadUserProfileDetails();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.teal,
         title: const Text('Retinal Image Classification',
             style: TextStyle(color: Colors.white)),
         actions: [
-          GestureDetector(
-            onTap: (){
+          IconButton(
+            icon: Icon(Icons.person, size: 30, color: Colors.white,),
+            onPressed: (){
               Get.to(()=>
                   ProfileScreen()
               );
             },
-            child: Container(
-              margin: EdgeInsets.all(8.0),
-              child: Text(
-                userProfileController.firstName + " " + userProfileController.lastName ?? "null",
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
+          )
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Center(
-            child: _image == null
-                ? const Text('No image selected.')
-                : Container(
-                    constraints: BoxConstraints(
-                        maxHeight: MediaQuery.of(context).size.height / 2),
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                    ),
-                    child: _imageWidget,
-                  ),
-          ),
-          const SizedBox(
-            height: 36,
-          ),
-          Text(
-            message != "" ? message : '',
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Text(
-            confidence != "" ? 'Confidence: ${confidence.toString()}' : '',
-            style: const TextStyle(fontSize: 16),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.teal),
-                  padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
-                  textStyle: MaterialStateProperty.all(
-                      const TextStyle(fontSize: 14, color: Colors.white))),
-              onPressed: isRetinal
-                  ? () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RetinaClassified(
-                              image: _image!,
-                              drType: diseaseMessage,
-                              confidence: diseaseConfidence,
-                            ),
-                          ));
-                    }
-                  : () async {
-                      selectImage();
-                      setState(() {});
-                    },
-              child: isRetinal ? const Text("Classify") : const Text('Select')),
-          const SizedBox(height: 10),
-        ],
+      body: controller.firstName==''? Center(
+        child: CircularProgressIndicator(color: Colors.teal,),
+      ): Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Center(
+              child: _image == null
+                  ? const Text('No image selected.')
+                  : Container(
+                constraints: BoxConstraints(
+                    maxHeight: MediaQuery.of(context).size.height / 2),
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                ),
+                child: _imageWidget,
+              ),
+            ),
+            const SizedBox(
+              height: 36,
+            ),
+            Text(
+              message != "" ? message : '',
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Text(
+              confidence != "" ? 'Confidence: ${confidence.toString()}' : '',
+              style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            SizedBox(
+              width: double.maxFinite,
+              child: ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.teal),
+                      padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
+                      textStyle: MaterialStateProperty.all(
+                          const TextStyle(fontSize: 14, color: Colors.white))),
+                  onPressed: isRetinal
+                      ? () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RetinaClassified(
+                            image: _image!,
+                            drType: diseaseMessage,
+                            confidence: diseaseConfidence,
+                          ),
+                        ));
+                  }
+                      : () async {
+                    selectImage();
+                    setState(() {});
+                  },
+                  child: isRetinal ? const Text("Classify", style: TextStyle(
+                      color: Colors.white
+                  ),) : const Text('Select', style: TextStyle(
+                      color: Colors.white
+                  ))),
+            ),
+            const SizedBox(height: 10),
+          ],
+        ),
       ),
     );
   }
