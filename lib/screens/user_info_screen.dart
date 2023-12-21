@@ -112,6 +112,11 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
                   if(firstNameController.text.isNotEmpty && lastNameController.text.isNotEmpty && dobController.text.isNotEmpty
                       && emailAddressController.text.isNotEmpty && gender!=null){
 
+                    controller.firstName = firstNameController.text;
+                    controller.lastName = lastNameController.text;
+                    controller.emailAddress = emailAddressController.text;
+                    controller.gender = gender;
+                    controller.dob = dobController.text;
                     showProgressDialog(context, "Saving data");
                     await controller.saveProfileData(
                       firstName: firstNameController.text,

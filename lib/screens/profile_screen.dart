@@ -26,6 +26,12 @@ class ProfileScreen extends StatelessWidget {
             onPressed: ()async{
               try {
                 await _auth.signOut().whenComplete(() => Get.offAll(()=> LoginScreen()));
+                controller.firstName = '';
+                controller.lastName = '';
+                controller.emailAddress = '';
+                controller.dob = '';
+                controller.uid = '';
+                controller.gender = '';
                 // Clear stored user data, such as UID and authentication state
               } catch (e) {
                 print('Error signing out: $e');

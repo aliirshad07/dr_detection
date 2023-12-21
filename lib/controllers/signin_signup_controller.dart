@@ -32,6 +32,13 @@ class SigninSignupController extends GetxController{
 
 
   Future<void> signupUserWithEmailAndPassword(String email, String password, String confirmPassword) async {
+
+    lastName = '';
+    firstName = '';
+    gender = '';
+    emailAddress = '';
+    dob = '';
+    uid = '';
     try {
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -78,6 +85,7 @@ class SigninSignupController extends GetxController{
 
       // You can add additional logic here, such as navigating to a new screen after signup
     } catch (e) {
+      Get.back();
       // Show an error snackbar with the error message
       Get.snackbar('Error', 'Failed to sign in user: $e');
     }
@@ -113,6 +121,7 @@ class SigninSignupController extends GetxController{
 
       Get.offAll(() => MyHomePage());
     } catch (e) {
+      Get.back();
       Get.snackbar('Error', 'Failed to create profile: $e', backgroundColor: Colors.white);
     }
   }

@@ -1,94 +1,26 @@
 {
   "project_info": {
-    "project_number": "773898752393",
-    "project_id": "adminproj-1ae61",
-    "storage_bucket": "adminproj-1ae61.appspot.com"
+    "project_number": "177168874372",
+    "project_id": "diabetesdetection-a2663",
+    "storage_bucket": "diabetesdetection-a2663.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:773898752393:android:f41edc600ecce8effcd158",
-        "android_client_info": {
-          "package_name": "com.example.admin_proj"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "773898752393-j2ic5cuj4gr92ck33qsgfkb5bogj1jll.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCERRzhePwh-_nlFtrFgwMewPbKMu9QXwo"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "773898752393-j2ic5cuj4gr92ck33qsgfkb5bogj1jll.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:773898752393:android:956b52b09de23e1efcd158",
+        "mobilesdk_app_id": "1:177168874372:android:eed1b05cc8174b0c057bd1",
         "android_client_info": {
           "package_name": "com.example.dr_detection"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "773898752393-j2ic5cuj4gr92ck33qsgfkb5bogj1jll.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCERRzhePwh-_nlFtrFgwMewPbKMu9QXwo"
+          "current_key": "AIzaSyBRxGUd6HqpHJys0fHu2q5989otWBUeRRs"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "773898752393-j2ic5cuj4gr92ck33qsgfkb5bogj1jll.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:773898752393:android:bd242cee656d00dbfcd158",
-        "android_client_info": {
-          "package_name": "com.example.flutter_testing_proj"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "773898752393-j2ic5cuj4gr92ck33qsgfkb5bogj1jll.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCERRzhePwh-_nlFtrFgwMewPbKMu9QXwo"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "773898752393-j2ic5cuj4gr92ck33qsgfkb5bogj1jll.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
