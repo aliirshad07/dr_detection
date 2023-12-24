@@ -9,12 +9,12 @@ import 'package:get/get.dart';
 
 import '../controllers/user_profile_controller.dart';
 
-class GetUserInfoScreen extends StatefulWidget {
+class editprofilescreen extends StatefulWidget {
   @override
-  State<GetUserInfoScreen> createState() => _GetUserInfoScreenState();
+  State<editprofilescreen> createState() => _editprofilescreenState();
 }
 
-class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
+class _editprofilescreenState extends State<editprofilescreen> {
 
 
   final TextEditingController firstNameController = TextEditingController();
@@ -118,15 +118,14 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
                     controller.gender = gender;
                     controller.dob = dobController.text;
                     showProgressDialog(context, "Saving data");
-                    await controller.saveProfileData(
-                      firstName: firstNameController.text,
-                      lastName: lastNameController.text,
-                      emailAddress: emailAddressController.text,
-                      dob: dobController.text,
-                      gender: gender
+                    await controller.editProfileData(
+                        firstName: firstNameController.text,
+                        lastName: lastNameController.text,
+                        emailAddress: emailAddressController.text,
+                        dob: dobController.text,
+                        gender: gender
                     );
-
-
+                    Get.offAll(()=>MyHomePage());
                   }else{
                     Get.snackbar("Empty fields", "Enter all fields", backgroundColor: Colors.white);
                   }
@@ -138,9 +137,9 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
                 child: Text(
                   'Save',
                   style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
                   ),
                 ),
               ),

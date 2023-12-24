@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
               'Diabedect',
               style: TextStyle(
                 fontSize: 24.0,
-                color: Colors.grey[800],
+                color: Colors.blue[800],
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
               'Sign In',
               style: TextStyle(
                 fontSize: 20.0,
-                color: Colors.grey[800],
+                color: Colors.blue[800],
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.teal,
+                  primary: Colors.blue,
                 ),
                 child: Text(
                   'Sign In',

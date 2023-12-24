@@ -133,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.blue,
         title: const Text('Retinal Image Classification',
             style: TextStyle(color: Colors.white)),
         actions: [
@@ -148,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: controller.firstName==''? Center(
-        child: CircularProgressIndicator(color: Colors.teal,),
+        child: CircularProgressIndicator(color: Colors.blue,),
       ): Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -187,7 +187,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: double.maxFinite,
               child: ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.teal),
+                      backgroundColor: MaterialStateProperty.all(Colors.blue),
                       padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
                       textStyle: MaterialStateProperty.all(
                           const TextStyle(fontSize: 14, color: Colors.white))),

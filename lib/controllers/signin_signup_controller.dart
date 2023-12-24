@@ -138,4 +138,38 @@ class SigninSignupController extends GetxController{
       uid = currentUser!.uid ?? '';
     }
   }
+  Future<void> editProfileData(
+      {required String firstName,
+        required String lastName,
+        required String emailAddress,
+        required String gender,
+        required String dob
+
+      }) async {
+    try {
+      FirebaseFirestore firestore = FirebaseFirestore.instance;
+      User user = FirebaseAuth.instance.currentUser!;
+
+      // Save profile picture to Firebase Storage and get the download URL
+
+      // Save user information to Firestore
+      DocumentReference userRef = firestore.collection('users').doc(user.uid);
+      await userRef.update({
+        "first_name": firstName,
+        "last_name": lastName,
+        "email": emailAddress,
+        "gender": gender,
+        "dob": dob,
+        "uid": user.uid,
+
+      });
+
+      Get.snackbar('Success', 'Profile created successfully', backgroundColor: Colors.white);
+
+      Get.offAll(() => MyHomePage());
+    } catch (e) {
+      Get.back();
+      Get.snackbar('Error', 'Failed to create profile: $e', backgroundColor: Colors.white);
+    }
+  }
 }

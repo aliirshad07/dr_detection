@@ -73,7 +73,7 @@ class SignUpScreen extends StatelessWidget {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.teal,
+                  primary: Colors.blue,
                 ),
                 child: Text(
                   'Sign up',

@@ -87,7 +87,7 @@ class _RetinaClassifiedState extends State<RetinaClassified> {
                               builder: (context) => MyHomePage()));
                     },
                     style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.teal),
+                        backgroundColor: MaterialStateProperty.all(Colors.blue),
                         padding:
                             MaterialStateProperty.all(const EdgeInsets.all(20)),
                         textStyle: MaterialStateProperty.all(const TextStyle(
