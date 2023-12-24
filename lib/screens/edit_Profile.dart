@@ -125,7 +125,6 @@ class _editprofilescreenState extends State<editprofilescreen> {
                         dob: dobController.text,
                         gender: gender
                     );
-                    Get.offAll(()=>MyHomePage());
                   }else{
                     Get.snackbar("Empty fields", "Enter all fields", backgroundColor: Colors.white);
                   }

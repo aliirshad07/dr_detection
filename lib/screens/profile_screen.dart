@@ -1,4 +1,5 @@
 import 'package:dr_detection/controllers/signin_signup_controller.dart';
+import 'package:dr_detection/screens/edit_Profile.dart';
 import 'package:dr_detection/screens/login_screen.dart';
 import 'package:dr_detection/screens/phone_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -21,6 +22,10 @@ class ProfileScreen extends StatelessWidget {
           color: Colors.white
         ),),
         actions: [
+          IconButton(
+            icon: Icon(Icons.edit, color: Colors.white,),
+            onPressed: ()=> Get.to(()=> editprofilescreen()),
+          ),
           IconButton(
             icon: Icon(Icons.settings_power_rounded, color: Colors.white,),
             onPressed: ()async{
