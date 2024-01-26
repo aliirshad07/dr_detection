@@ -55,6 +55,12 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'assets/Eye.PNG', // Replace with your image path
+              width: 150, // Adjust width as needed
+              height: 150, // Adjust height as needed
+              // You can add more properties to customize the image display
+            ),
             CustomizeButton(title: 'View Doctors', onPressed: (){
               Get.to(()=> AdminDoctorListScreen());
             },),
