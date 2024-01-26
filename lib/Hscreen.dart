@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:ffi';
 import 'dart:io';
-import 'package:dr_detection/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -16,7 +15,12 @@ import 'controllers/signin_signup_controller.dart';
 import 'controllers/user_profile_controller.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key,}) : super(key: key);
+  MyHomePage({Key? key, this.uid, required this.patientName, required this.dob, required this.email, required this.gender,}) : super(key: key);
+  final String? uid;
+  final String patientName;
+  final String dob;
+  final String email;
+  final String gender;
 
 
   @override
@@ -127,25 +131,20 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    controller.getCurrentUserData();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+            onPressed: ()=> Get.back()
+        ),
         backgroundColor: Colors.blue,
         title: const Text('Retinal Image Classification',
             style: TextStyle(color: Colors.white)),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.person, size: 30, color: Colors.white,),
-            onPressed: (){
-              Get.to(()=>
-                  ProfileScreen()
-              );
-            },
-          )
-        ],
       ),
       body: controller.firstName==''? Center(
         child: CircularProgressIndicator(color: Colors.blue,),
@@ -200,6 +199,13 @@ class _MyHomePageState extends State<MyHomePage> {
                             image: _image!,
                             drType: diseaseMessage,
                             confidence: diseaseConfidence,
+                            patientName: widget.patientName,
+                            gender: widget.gender,
+                            patientDOB: widget.dob,
+                            patientEmail: widget.email,
+                            uid: widget.uid!,
+
+
                           ),
                         ));
                   }

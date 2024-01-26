@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/signin_signup_controller.dart';
-import '../widgets/functions.dart';
-import '../widgets/text_field.dart';
-import 'signup_screen.dart';
+import 'package:dr_detection/controllers/signin_signup_controller.dart';
+import 'package:dr_detection/widgets/functions.dart';
+import 'package:dr_detection/widgets/text_field.dart';
+import 'package:dr_detection/screens/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override

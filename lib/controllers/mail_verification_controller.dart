@@ -1,6 +1,5 @@
 import 'dart:async';
-
-import 'package:dr_detection/screens/user_info_screen.dart';
+import 'package:dr_detection/screens/universal/user_type_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -33,7 +32,7 @@ class MailVerificationController extends GetxController{
       final user = FirebaseAuth.instance.currentUser;
 
       if(user!.emailVerified){
-        Get.to(()=> GetUserInfoScreen());
+        Get.to(()=> UserTypeSelectionScreen());
         timer.cancel();
       }
     });

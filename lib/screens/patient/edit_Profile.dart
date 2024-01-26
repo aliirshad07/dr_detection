@@ -1,20 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dr_detection/Hscreen.dart';
 import 'package:dr_detection/controllers/signin_signup_controller.dart';
-import 'package:dr_detection/screens/otp_screen.dart';
 import 'package:dr_detection/widgets/functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:dr_detection/controllers/user_profile_controller.dart';
 
-import '../controllers/user_profile_controller.dart';
-
-class GetUserInfoScreen extends StatefulWidget {
+class editprofilescreen extends StatefulWidget {
   @override
-  State<GetUserInfoScreen> createState() => _GetUserInfoScreenState();
+  State<editprofilescreen> createState() => _editprofilescreenState();
 }
 
-class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
+class _editprofilescreenState extends State<editprofilescreen> {
 
 
   final TextEditingController firstNameController = TextEditingController();
@@ -23,7 +21,7 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
   final TextEditingController genderController = TextEditingController();
   final TextEditingController dobController = TextEditingController();
 
-  final userProfileController = Get.put(UserProfileController());
+  final userProfileController = Get.put(UserController());
   final controller = Get.put(SigninSignupController());
   String gender = 'Male';
 
@@ -118,15 +116,13 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
                     controller.gender = gender;
                     controller.dob = dobController.text;
                     showProgressDialog(context, "Saving data");
-                    await controller.saveProfileData(
-                      firstName: firstNameController.text,
-                      lastName: lastNameController.text,
-                      emailAddress: emailAddressController.text,
-                      dob: dobController.text,
-                      gender: gender
+                    await controller.editProfileData(
+                        firstName: firstNameController.text,
+                        lastName: lastNameController.text,
+                        emailAddress: emailAddressController.text,
+                        dob: dobController.text,
+                        gender: gender
                     );
-
-
                   }else{
                     Get.snackbar("Empty fields", "Enter all fields", backgroundColor: Colors.white);
                   }
@@ -138,9 +134,9 @@ class _GetUserInfoScreenState extends State<GetUserInfoScreen> {
                 child: Text(
                   'Save',
                   style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
                   ),
                 ),
               ),

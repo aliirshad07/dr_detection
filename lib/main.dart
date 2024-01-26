@@ -1,5 +1,6 @@
 import 'package:dr_detection/controllers/signin_signup_controller.dart';
-import 'package:dr_detection/screens/login_screen.dart';
+import 'package:dr_detection/screens/universal/login_screen.dart';
+import 'package:dr_detection/screens/universal/main_home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:dr_detection/Hscreen.dart';
@@ -14,18 +15,28 @@ void main() async{
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   MyApp({super.key});
-  final userController = Get.put(SigninSignupController());
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  final controller = Get.put(SigninSignupController());
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller.getCurrentUserData();
+  }
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       initialBinding: BindingsBuilder(() {
-        Get.put<SigninSignupController>(userController);
       }),
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -35,7 +46,7 @@ class MyApp extends StatelessWidget {
         builder: (context, snapshot){
           if(snapshot.connectionState == ConnectionState.active){
             if(snapshot.hasData){
-              return MyHomePage();
+              return MainHomePage();
             }else if(snapshot.hasError){
               return Center(
                   child: Text('${snapshot.error}')

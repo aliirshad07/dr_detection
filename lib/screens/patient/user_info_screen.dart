@@ -1,20 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dr_detection/Hscreen.dart';
 import 'package:dr_detection/controllers/signin_signup_controller.dart';
-import 'package:dr_detection/screens/otp_screen.dart';
 import 'package:dr_detection/widgets/functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/user_profile_controller.dart';
+import 'package:dr_detection/controllers/user_profile_controller.dart';
 
-class editprofilescreen extends StatefulWidget {
+class UserInfoScreen extends StatefulWidget {
   @override
-  State<editprofilescreen> createState() => _editprofilescreenState();
+  State<UserInfoScreen> createState() => _UserInfoScreenState();
 }
 
-class _editprofilescreenState extends State<editprofilescreen> {
+class _UserInfoScreenState extends State<UserInfoScreen> {
 
 
   final TextEditingController firstNameController = TextEditingController();
@@ -23,7 +22,7 @@ class _editprofilescreenState extends State<editprofilescreen> {
   final TextEditingController genderController = TextEditingController();
   final TextEditingController dobController = TextEditingController();
 
-  final userProfileController = Get.put(UserProfileController());
+  final userProfileController = Get.put(UserController());
   final controller = Get.put(SigninSignupController());
   String gender = 'Male';
 
@@ -118,13 +117,16 @@ class _editprofilescreenState extends State<editprofilescreen> {
                     controller.gender = gender;
                     controller.dob = dobController.text;
                     showProgressDialog(context, "Saving data");
-                    await controller.editProfileData(
-                        firstName: firstNameController.text,
-                        lastName: lastNameController.text,
-                        emailAddress: emailAddressController.text,
-                        dob: dobController.text,
-                        gender: gender
+                    await controller.savePatientProfileData(
+                      firstName: firstNameController.text,
+                      lastName: lastNameController.text,
+                      emailAddress: emailAddressController.text,
+                      dob: dobController.text,
+                      gender: gender,
+                      isDoc: false
                     );
+
+
                   }else{
                     Get.snackbar("Empty fields", "Enter all fields", backgroundColor: Colors.white);
                   }
@@ -136,9 +138,9 @@ class _editprofilescreenState extends State<editprofilescreen> {
                 child: Text(
                   'Save',
                   style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
                   ),
                 ),
               ),

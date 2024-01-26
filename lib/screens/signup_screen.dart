@@ -3,7 +3,6 @@ import 'package:dr_detection/widgets/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../widgets/text_field.dart';
-import 'user_info_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);

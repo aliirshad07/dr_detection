@@ -1,9 +1,10 @@
-import 'package:dr_detection/screens/user_info_screen.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/mail_verification_controller.dart';
+import '../../controllers/mail_verification_controller.dart';
+import '../patient/user_info_screen.dart';
 
 class EmailVerificationScreen extends StatelessWidget {
   EmailVerificationScreen({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class EmailVerificationScreen extends StatelessWidget {
           ElevatedButton(
             onPressed: (){
               if(_auth.currentUser!.emailVerified){
-                Get.offAll(()=> GetUserInfoScreen());
+                Get.offAll(()=> UserInfoScreen());
               }else{
                 Get.snackbar("Error", "Your email has not been verified", backgroundColor: Colors.white);
               }
