@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/signin_signup_controller.dart';
-import '../patient/patient_home_screen.dart';
 import '../universal/login_screen.dart';
 
 class AdminHomeScreen extends StatefulWidget {

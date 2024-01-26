@@ -3,7 +3,6 @@ import 'package:dr_detection/screens/universal/login_screen.dart';
 import 'package:dr_detection/screens/universal/main_home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:dr_detection/Hscreen.dart';
 import "package:flutter_easyloading/flutter_easyloading.dart";
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
@@ -35,7 +34,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Retinal Image Classification',
       initialBinding: BindingsBuilder(() {
       }),
       theme: ThemeData(

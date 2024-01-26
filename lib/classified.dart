@@ -123,7 +123,7 @@ class _RetinaClassifiedState extends State<RetinaClassified> {
                       MaterialStateProperty.all(const EdgeInsets.all(20)),
                       textStyle: MaterialStateProperty.all(const TextStyle(
                           fontSize: 14, color: Colors.white))),
-                  child: Text("Save Report",
+                  child: Text("Send Report to Patient",
                     style: TextStyle(
                         color: Colors.white
                     ),
