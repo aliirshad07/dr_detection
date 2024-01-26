@@ -23,14 +23,7 @@ class SignUpScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Sign Up',
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.grey[800],
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Image.asset('assets/Eye.PNG'),
             SizedBox(height: 16.0),
             buildTextField(
               hintText: "Enter your email",

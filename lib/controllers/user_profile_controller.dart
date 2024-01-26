@@ -97,7 +97,7 @@ class UserController extends GetxController {
       // Set the report data in the document
       await reportDocRef.set(reportData);
 
-      print('Report created successfully!');
+      Get.snackbar('Report sent', 'Report Sent to Patient successfully!', backgroundColor: Colors.white);
     } catch (error) {
       print('Error creating report: $error');
     }

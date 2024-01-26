@@ -27,7 +27,7 @@ class _MainHomePageState extends State<MainHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: controller.currentUser!.uid == 'yZWCM8wtnwS4JrKs9JrHk7khXf63'? AdminHomeScreen() : controller.isDoc? DoctorHomeScreen(): PatientHomeScreen(),
+      body: controller.currentUser!.uid == 'juCUq6FJQcPAoxfnPV3U4eZNXWj1'? AdminHomeScreen() : controller.isDoc? DoctorHomeScreen(): PatientHomeScreen(),
     );
   }
 }

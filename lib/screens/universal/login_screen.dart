@@ -25,14 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Diabedect',
-              style: TextStyle(
-                fontSize: 24.0,
-                color: Colors.blue[800],
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Image.asset('assets/Eye.png'),
             SizedBox(height: 16.0),
             Text(
               'Sign In',
