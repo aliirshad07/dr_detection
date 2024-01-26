@@ -19,6 +19,12 @@ class _UserTypeSelectionScreenState extends State<UserTypeSelectionScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'assets/Eye.PNG', // Replace with your image path
+              width: 150, // Adjust width as needed
+              height: 150, // Adjust height as needed
+              // You can add more properties to customize the image display
+            ),
             buildUserTypeContainer('Patient'),
             SizedBox(height: 16),
             buildUserTypeContainer('Doctor'),
@@ -45,7 +51,7 @@ class _UserTypeSelectionScreenState extends State<UserTypeSelectionScreen> {
         height: MediaQuery.of(context).size.height * 0.3,
         decoration: BoxDecoration(
           border: Border.all(
-            color: userType == type ? Colors.blue : Colors.grey,
+            color: userType == type ? Colors.blue : Colors.blue,
             width: 2.0,
           ),
           borderRadius: BorderRadius.circular(12.0),

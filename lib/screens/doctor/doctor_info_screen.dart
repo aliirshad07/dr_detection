@@ -44,7 +44,7 @@ class _DoctorinfoscreenState extends State<Doctorinfoscreen> {
                 // You can add more properties to customize the image display
               ),
               Text(
-                'Doctor Sign Up',
+                'Doctor Profile Creation',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.blue[800],

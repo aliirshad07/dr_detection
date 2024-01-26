@@ -45,10 +45,10 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Sign Up',
+              'Patient Profile Creation',
               style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.grey[800],
+                fontSize: 24.0,
+                color: Colors.blue,
                 fontWeight: FontWeight.bold,
               ),
             ),

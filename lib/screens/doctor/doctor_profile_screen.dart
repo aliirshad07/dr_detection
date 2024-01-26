@@ -19,7 +19,7 @@ class DoctorProfileScreen extends StatelessWidget {
             onPressed: ()=> Get.back()
         ),
         backgroundColor: Colors.blue,
-        title: Text('Profile',
+        title: Text('Doctor Profile',
           style: TextStyle(
               color: Colors.white
           ),),

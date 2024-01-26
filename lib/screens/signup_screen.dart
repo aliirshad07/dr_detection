@@ -23,11 +23,17 @@ class SignUpScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'assets/Eye.PNG', // Replace with your image path
+              width: 150, // Adjust width as needed
+              height: 150, // Adjust height as needed
+              // You can add more properties to customize the image display
+            ),
             Text(
               'Sign Up',
               style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.grey[800],
+                fontSize: 24.0,
+                color: Colors.blue,
                 fontWeight: FontWeight.bold,
               ),
             ),

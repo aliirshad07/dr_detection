@@ -49,7 +49,7 @@ class SigninSignupController extends GetxController{
       }
 
       // Show a success snackbar
-      Get.snackbar('Success', 'User signed up successfully', backgroundColor: Colors.white);
+      Get.snackbar('Success', 'Email Sent', backgroundColor: Colors.white);
 
 
       // You can add additional logic here, such as navigating to a new screen after signup
@@ -90,14 +90,14 @@ class SigninSignupController extends GetxController{
 
 
       // Show a success snackbar
-      Get.snackbar('Success', 'User signed in successfully', backgroundColor: Colors.white);
+      Get.snackbar('Success', 'Logged in successfully', backgroundColor: Colors.white);
 
 
       // You can add additional logic here, such as navigating to a new screen after signup
     } catch (e) {
       Get.back();
       // Show an error snackbar with the error message
-      Get.snackbar('Error', 'Failed to sign in user: $e');
+      Get.snackbar('Error', 'Failed to  Login in user: $e');
     }
   }
 
@@ -129,7 +129,7 @@ class SigninSignupController extends GetxController{
 
       });
 
-      Get.snackbar('Success', 'Profile created successfully', backgroundColor: Colors.white);
+      Get.snackbar('Success', 'Patient Profile created successfully', backgroundColor: Colors.white);
 
       Get.offAll(() => PatientHomeScreen());
     } catch (e) {
@@ -212,12 +212,12 @@ class SigninSignupController extends GetxController{
 
       });
 
-      Get.snackbar('Success', 'Profile created successfully', backgroundColor: Colors.white);
+      Get.snackbar('Success', 'Profile updated successfully', backgroundColor: Colors.white);
 
       Get.offAll(() => DoctorHomeScreen());
     } catch (e) {
       Get.back();
-      Get.snackbar('Error', 'Failed to create profile: $e', backgroundColor: Colors.white);
+      Get.snackbar('Error', 'Failed to update profile: $e', backgroundColor: Colors.white);
     }
   }
 
@@ -262,12 +262,12 @@ class SigninSignupController extends GetxController{
 
       });
 
-      Get.snackbar('Success', 'Profile created successfully', backgroundColor: Colors.white);
+      Get.snackbar('Success', 'Profile updated successfully', backgroundColor: Colors.white);
 
       Get.offAll(() => PatientHomeScreen());
     } catch (e) {
       Get.back();
-      Get.snackbar('Error', 'Failed to create profile: $e', backgroundColor: Colors.white);
+      Get.snackbar('Error', 'Failed to updated profile: $e', backgroundColor: Colors.white);
     }
   }
 }

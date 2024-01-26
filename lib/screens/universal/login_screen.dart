@@ -25,19 +25,25 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'assets/Eye.PNG', // Replace with your image path
+              width: 150, // Adjust width as needed
+              height: 150, // Adjust height as needed
+              // You can add more properties to customize the image display
+            ),
             Text(
               'Diabedect',
               style: TextStyle(
-                fontSize: 24.0,
+                fontSize: 28.0,
                 color: Colors.blue[800],
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 16.0),
             Text(
-              'Sign In',
+              'Log In',
               style: TextStyle(
-                fontSize: 20.0,
+                fontSize: 24.0,
                 color: Colors.blue[800],
                 fontWeight: FontWeight.bold,
               ),
@@ -69,23 +75,24 @@ class _LoginScreenState extends State<LoginScreen> {
                   primary: Colors.blue,
                 ),
                 child: Text(
-                  'Sign In',
+                  'Log In',
                   style: TextStyle(
-                      fontSize: 18.0,
+                      fontSize: 22.0,
                       fontWeight: FontWeight.bold,
                       color: Colors.white
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 16.0),
+            SizedBox(height: 18.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Don't have an account?",
                   style: TextStyle(
-                    color: Colors.grey[800],
+                    fontSize: 20.0,
+                    color: Colors.blue,
                   ),
                 ),
                 SizedBox(width: 4.0),
@@ -94,7 +101,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     'Sign Up',
                     style: TextStyle(
-                      color: Colors.grey[800],
+                      fontSize: 20.0,
+                      color: Colors.blue,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

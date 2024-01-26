@@ -47,8 +47,16 @@ class ReportInfoScreen extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Center(
+                  child: Image.asset(
+                    'assets/Eye.PNG', // Replace with your image path
+                    width: 150, // Adjust width as needed
+                    height: 150, // Adjust height as needed
+                    // You can add more properties to customize the image display
+                  ),
+                ),
                 Center(
                   child: Text(
                     'DIABDECT',

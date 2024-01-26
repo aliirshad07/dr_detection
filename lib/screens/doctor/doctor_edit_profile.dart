@@ -44,7 +44,7 @@ class _DoctorEditProfilescreenState extends State<DoctorEditProfilescreen> {
                 // You can add more properties to customize the image display
               ),
               Text(
-                'Edit Profile',
+                'Edit Doctor Profile',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.blue[800],
